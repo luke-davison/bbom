@@ -1,9 +1,10 @@
 import { IPlayerCard} from './IPlayerCard';
-import { ISupportSlot } from './ISupportSlot';
+import { ICharacter } from './ICharacter';
 
 export interface IPlayer {
+    character: ICharacter;
     hand: IPlayerCard[];
     deck: IPlayerCard[];
     discards: IPlayerCard[];
-    supports: ISupportSlot[];
+    supports: IPlayerCard[];
 }

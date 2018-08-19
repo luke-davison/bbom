@@ -1,21 +1,17 @@
 import { IPlayerCard } from '../interfaces/IPlayerCard';
+import { IMana } from '../interfaces/IMana';
 
-export function getStartingDeck(num: number): IPlayerCard[] {
-    switch (num) {
-        default:
-            return [
-                {type: "mana", mana: {earth: 2}},
-                {type: "mana", mana: {earth: 1}},
-                {type: "mana", mana: {earth: 1}},
-                {type: "mana", mana: {air: 1}},
-                {type: "mana", mana: {air: 1}},
-                {type: "mana", mana: {air: 1}},
-                {type: "mana", mana: {fire: 1}},
-                {type: "mana", mana: {fire: 1}},
-                {type: "mana", mana: {fire: 1}},
-                {type: "mana", mana: {water: 1}},
-                {type: "mana", mana: {water: 1}},
-                {type: "mana", mana: {water: 1}},
-            ];
-    }
+interface IManaQuantity {
+    mana: IMana;
+    quantity: number
+}
+
+export function getStartingDeck(manaQuantities: Array<IManaQuantity>): IPlayerCard[] {
+    const deck: IPlayerCard[] = [];
+    manaQuantities.forEach(manaQuantity => {
+        for (let i = 0; i < manaQuantity.quantity; i++) {
+            deck.push({type: "mana", mana: [manaQuantity.mana]})
+        }
+    })
+    return deck;
 }

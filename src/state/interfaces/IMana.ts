@@ -1,6 +1,6 @@
+import { mana } from "../types/mana";
+
 export interface IMana {
-    air?: number;
-    earth?: number;
-    fire?: number;
-    water?: number;
+    type: mana;
+    value: number;
 }
