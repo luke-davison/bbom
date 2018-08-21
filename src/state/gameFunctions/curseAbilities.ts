@@ -1,16 +1,18 @@
 import { IGame } from "../interfaces/IGame";
 import { shuffle } from "../buildFunctions/shuffle";
 import { drawACard } from "./drawACard";
+import { choose } from "./choose";
+import { IPlayerCard } from "../interfaces/IPlayerCard";
 
 export function eachPlayerDiscardsDeck(game: IGame): void {
     game.players.forEach(player => {
         while (player.deck.length) {
             const card = player.deck.pop();
             if (card) {
-                player.discards.push(card)
+                player.discards.push(card);
             }
         }
-    })
+    });
 }
 
 export function eachPlayerGetsMadnessOnDeck(game: IGame): void {
@@ -18,10 +20,10 @@ export function eachPlayerGetsMadnessOnDeck(game: IGame): void {
         if (game.madness.length) {
             const card = game.madness.pop();
             if (card) {
-                player.deck.push(card)
+                player.deck.push(card);
             }
         }
-    })
+    });
 }
 
 export function eachPlayerDiscardsSupport(game: IGame): void {
@@ -29,10 +31,10 @@ export function eachPlayerDiscardsSupport(game: IGame): void {
         while (player.supports.length) {
             const card = player.supports.pop();
             if (card) {
-                player.discards.push(card)
+                player.discards.push(card);
             }
         }
-    })
+    });
 }
 
 export function returnDestroyedCards(game: IGame): void {
@@ -52,7 +54,7 @@ export function returnDestroyedCards(game: IGame): void {
 }
 
 export function destroyMadness(game: IGame, num: number): void {
-    for (let i = 0; i < num; i++) {
+    for (let i: number = 0; i < num; i++) {
         if (game.madness) {
             const card = game.madness.pop();
             if (card) {
@@ -76,12 +78,12 @@ export function eachPlayerDiscardsHandAndDraws(game: IGame, num: number): void {
                 player.hand.push(card);
             }
         }
-    })
+    });
 }
 
 export function eachPlayerDiscardsTopCardsOfDeck(game: IGame, num: number): void {
     game.players.forEach(player => {
-        for (let i = 0; i < num; i++) {
+        for (let i: number = 0; i < num; i++) {
             if (player.deck.length) {
                 const card = player.deck.pop();
                 if (card) {
@@ -89,7 +91,7 @@ export function eachPlayerDiscardsTopCardsOfDeck(game: IGame, num: number): void
                 }
             }
         }
-    })
+    });
 }
 
 export function eachPlayerGetsMadnessIntoDiscard(game: IGame): void {
@@ -100,7 +102,7 @@ export function eachPlayerGetsMadnessIntoDiscard(game: IGame): void {
                 player.discards.push(card)
             }
         }
-    })
+    });
 }
 
 export function eachPlayerDestroysTopCardsOfDeck(game: IGame, num: number): void {
@@ -113,5 +115,39 @@ export function eachPlayerDestroysTopCardsOfDeck(game: IGame, num: number): void
                 }
             }
         }
-    })
+    });
+}
+
+export function eachPlayerDiscardsCards(game: IGame, num: number): void {
+    const players = Array.from(game.players);
+    playerDiscardsCards();
+
+    function playerDiscardsCards(): void {
+        if (players.length) {
+            const player = players.pop();
+            if (player) {
+                choose(player.hand, num, (cards: IPlayerCard[]) => {
+                    cards.forEach(card => player.discards.push(card));
+                    playerDiscardsCards();
+                });
+            }
+        }
+    }
+}
+
+export function eachPlayerDiscardsTypeOfCard(game: IGame, num: number): void {
+    const players = Array.from(game.players);
+    playerDiscardsCards();
+
+    function playerDiscardsCards(): void {
+        if (players.length) {
+            const player = players.pop();
+            if (player) {
+                choose(player.hand, num, (cards: IPlayerCard[]) => {
+                    cards.forEach(card => player.discards.push(card));
+                    playerDiscardsCards();
+                });
+            }
+        }
+    }
 }
