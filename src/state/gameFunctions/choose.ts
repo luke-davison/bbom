@@ -1,11 +1,6 @@
 import { IPlayerCard } from "../interfaces/IPlayerCard";
 
-export function choose(cards: IPlayerCard[], num: number, callback: (chosen: IPlayerCard[], other: IPlayerCard[]) => any): void {
-    console.log("choosing");
-    // callback(cards[0]);
-}
-
-export function chooseFrom(cards: IPlayerCard[], num: number, callback: (cards: IPlayerCard[]) => any): void {
+export function choose(message: string, cards: IPlayerCard[], num: number, callback: (chosen: IPlayerCard[]) => any): void {
     const arr: IPlayerCard[] = [];
     while (cards.length) {
         const card = cards.pop();
@@ -16,9 +11,9 @@ export function chooseFrom(cards: IPlayerCard[], num: number, callback: (cards: 
     if (arr.length <= num) {
         return callback(arr);
     }
-    choose(arr, num, (chosen: IPlayerCard[], other: IPlayerCard[]) => {
-        while (other) {
-            const card = other.pop();
+    choose(message, arr, num, (chosen: IPlayerCard[]) => {
+        while (arr) {
+            const card = arr.pop();
             if (card) {
                 cards.push(card);
             }
@@ -27,7 +22,13 @@ export function chooseFrom(cards: IPlayerCard[], num: number, callback: (cards: 
     });
 }
 
-export function chooseFromFiltered(cards: IPlayerCard[], num: number, filter: (card: IPlayerCard) => boolean, callback: (cards: IPlayerCard[]) => any): void {
+export function chooseFiltered(
+    message: string,
+    cards: IPlayerCard[],
+    num: number,
+    filter: (card: IPlayerCard) => boolean,
+    callback: (cards: IPlayerCard[]) => any
+): void {
     const arr: IPlayerCard[] = [];
     const arr2: IPlayerCard[] = [];
     while (cards.length) {
@@ -49,9 +50,9 @@ export function chooseFromFiltered(cards: IPlayerCard[], num: number, filter: (c
     if (arr.length <= num) {
         return callback(arr);
     }
-    choose(arr, num, (chosen: IPlayerCard[], other: IPlayerCard[]) => {
-        while (other) {
-            const card = other.pop();
+    choose(message, arr, num, (chosen: IPlayerCard[]) => {
+        while (arr) {
+            const card = arr.pop();
             if (card) {
                 cards.push(card);
             }
