@@ -1,8 +1,8 @@
-import { IGame } from "../interfaces/IGame";
+import { Game } from "../interfaces/Game";
 import { shuffle } from "../buildFunctions/shuffle";
 import { drawACard } from "./drawACard";
 
-export function eachPlayerDiscardsDeck(game: IGame): void {
+export function eachPlayerDiscardsDeck(game: Game): void {
     game.players.forEach(player => {
         while (player.deck.length) {
             const card = player.deck.pop();
@@ -13,7 +13,7 @@ export function eachPlayerDiscardsDeck(game: IGame): void {
     })
 }
 
-export function eachPlayerGetsMadnessOnDeck(game: IGame): void {
+export function eachPlayerGetsMadnessOnDeck(game: Game): void {
     game.players.forEach(player => {
         if (game.madness.length) {
             const card = game.madness.pop();
@@ -24,7 +24,7 @@ export function eachPlayerGetsMadnessOnDeck(game: IGame): void {
     })
 }
 
-export function eachPlayerDiscardsSupport(game: IGame): void {
+export function eachPlayerDiscardsSupport(game: Game): void {
     game.players.forEach(player => {
         while (player.supports.length) {
             const card = player.supports.pop();
@@ -35,7 +35,7 @@ export function eachPlayerDiscardsSupport(game: IGame): void {
     })
 }
 
-export function returnDestroyedCards(game: IGame): void {
+export function returnDestroyedCards(game: Game): void {
     shuffle(game.cardsRemoved);
     let i: number = 0;
     while (i < 3 * game.players.length && game.cardsRemoved.length) {
@@ -51,7 +51,7 @@ export function returnDestroyedCards(game: IGame): void {
     }
 }
 
-export function destroyMadness(game: IGame, num: number): void {
+export function destroyMadness(game: Game, num: number): void {
     for (let i = 0; i < num; i++) {
         if (game.madness) {
             const card = game.madness.pop();
@@ -62,7 +62,7 @@ export function destroyMadness(game: IGame, num: number): void {
     }
 }
 
-export function eachPlayerDiscardsHandAndDraws(game: IGame, num: number): void {
+export function eachPlayerDiscardsHandAndDraws(game: Game, num: number): void {
     game.players.forEach(player => {
         while (player.hand.length) {
             const card = player.hand.pop();
@@ -79,7 +79,7 @@ export function eachPlayerDiscardsHandAndDraws(game: IGame, num: number): void {
     })
 }
 
-export function eachPlayerDiscardsTopCardsOfDeck(game: IGame, num: number): void {
+export function eachPlayerDiscardsTopCardsOfDeck(game: Game, num: number): void {
     game.players.forEach(player => {
         for (let i = 0; i < num; i++) {
             if (player.deck.length) {
@@ -92,7 +92,7 @@ export function eachPlayerDiscardsTopCardsOfDeck(game: IGame, num: number): void
     })
 }
 
-export function eachPlayerGetsMadnessIntoDiscard(game: IGame): void {
+export function eachPlayerGetsMadnessIntoDiscard(game: Game): void {
     game.players.forEach(player => {
         if (game.madness.length) {
             const card = game.madness.pop();
@@ -103,7 +103,7 @@ export function eachPlayerGetsMadnessIntoDiscard(game: IGame): void {
     })
 }
 
-export function eachPlayerDestroysTopCardsOfDeck(game: IGame, num: number): void {
+export function eachPlayerDestroysTopCardsOfDeck(game: Game, num: number): void {
     game.players.forEach(player => {
         for (let i = 0; i < num; i++) {
             if (player.deck.length) {

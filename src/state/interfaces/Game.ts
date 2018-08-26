@@ -1,7 +1,7 @@
 import { IPlayer } from "./IPlayer";
 import { IPlayerCard } from "./IPlayerCard";
 
-export interface IGame {
+export class Game {
   players: IPlayer[];
   madness: IPlayerCard[];
   cardsRemoved: IPlayerCard[];
