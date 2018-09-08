@@ -10,7 +10,7 @@ export class Players extends React.Component<{players: IPlayer[]}, {}> {
         return (
             <div className="players">
                 {this.props.players.map((player, i) => (
-                    <div key={i}>
+                    <div className="player-container" key={i}>
                         <Player player={player} />
                     </div>
                 ))}

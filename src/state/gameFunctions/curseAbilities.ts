@@ -1,6 +1,6 @@
 
 import { shuffle } from "../buildFunctions/shuffle";
-import { Game } from "../interfaces/Game";
+import { Game } from "../classes/Game";
 import { drawACard } from "./drawACard";
 
 export function eachPlayerDiscardsDeck(game: Game): void {

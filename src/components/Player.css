@@ -1,0 +1,20 @@
+.player {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-icon-container {
+    flex-grow: 2;
+}
+
+.player-deck-container {
+    flex-grow: 1;
+}
+
+.player-discards-container {
+    flex-grow: 1;
+}
+
+.player-hand-container {
+    flex-grow: 6;
+}

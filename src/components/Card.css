@@ -1,0 +1,24 @@
+.card {
+    width: 100%;
+    height: 100%;
+}
+
+.card-madness {
+    background-color: black;
+}
+
+.card-air {
+    background-color: lightblue;
+}
+
+.card-earth {
+    background-color: lightgreen;
+}
+
+.card-fire {
+    background-color: lightcoral;
+}
+
+.card-water {
+    background-color: skyblue;
+}

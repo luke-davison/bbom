@@ -1,21 +1,25 @@
 import {observer} from "mobx-react";
 import * as React from "react";
-import { IPlayer } from "../state/interfaces/IPlayer";
+
+import { PlayerCard } from "../state/classes/PlayerCard";
 import { Card } from "./Card";
 
+import "./Hand.css";
+
 interface IHandProps {
-    player: IPlayer;
+    hand: PlayerCard[];
 }
 
 @observer
 export class Hand extends React.Component<IHandProps, {}> {
-
     public render() {
-        const className = `player-hand player-hand-${this.props.player.id}`;
+        const className = `player-hand`;
         return (
             <div className={className}>
-                {this.props.player.hand.map((card) =>
-                    <Card card={card} />,
+                {this.props.hand.map((card, key) =>
+                    <div className="player-hand-card-container" key={key}>
+                        <Card card={card} />
+                    </div>,
                 )}
             </div>
         );

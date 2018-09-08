@@ -1,0 +1,9 @@
+.player-deck {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+
+.player-deck-empty {
+    background-color: none;
+}

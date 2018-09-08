@@ -3,11 +3,19 @@ import * as React from "react";
 
 import { PlayerCard } from "../state/classes/PlayerCard";
 
+interface IDeckProps {
+    deck: PlayerCard[];
+}
+
 @observer
-export class Deck extends React.Component<{deck: PlayerCard[]}, {}> {
+export class Deck extends React.Component<IDeckProps, {}> {
     public render() {
+        let className: string = "player-deck";
+        if (!this.props.deck) {
+            className += " player-deck-empty";
+        }
         return (
-            <div className="deck" />
+            <div className={className} />
         );
     }
 }
