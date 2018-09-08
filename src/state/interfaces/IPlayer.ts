@@ -1,10 +1,12 @@
-import { IPlayerCard} from './IPlayerCard';
-import { ICharacter } from './ICharacter';
+import { PlayerCard } from "../classes/PlayerCard";
+import { ICharacter } from "./ICharacter";
 
 export interface IPlayer {
+    id: number;
+    icon: number;
     character: ICharacter;
-    hand: IPlayerCard[];
-    deck: IPlayerCard[];
-    discards: IPlayerCard[];
-    supports: IPlayerCard[];
+    hand: PlayerCard[];
+    deck: PlayerCard[];
+    discards: PlayerCard[];
+    supports: PlayerCard[];
 }

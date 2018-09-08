@@ -1,7 +1,7 @@
-import { choose, chooseFiltered} from "./choose";
-import { IPlayerCard } from "../interfaces/IPlayerCard";
+import { PlayerCard } from "../classes/PlayerCard";
+import { choose} from "./choose";
 
-const emptyArray: IPlayerCard[] = [];
+const emptyArray: PlayerCard[] = [];
 
 it("returns an array", () => {
     choose("Choose", emptyArray, 1, (chosen) => {

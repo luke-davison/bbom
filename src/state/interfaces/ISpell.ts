@@ -1,4 +1,4 @@
-import { IMana } from './IMana';
+import { IMana } from "./IMana";
 
 export interface ISpell {
     name: string;

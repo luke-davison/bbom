@@ -1,9 +1,9 @@
-import { IPlayerCard } from "./IPlayerCard";
+import { PlayerCard } from "../classes/PlayerCard";
 
 export interface ICharacter {
   name: string;
   abilityText: string;
-  startingDeck: IPlayerCard[];
+  startingDeck: PlayerCard[];
   supportSlots: number;
   maxSpells: number;
 }

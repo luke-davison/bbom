@@ -1,9 +1,8 @@
-import { ICurseDecks } from "../interfaces/ICurseDecks";
 import { ICurse } from "../interfaces/ICurse";
-
+import { ICurseDecks } from "../interfaces/ICurseDecks";
 
 export function getCurses(): ICurseDecks {
-    const air: ICurse[] = []
+    const air: ICurse[] = [];
     const earth: ICurse[] = [];
     const fire: ICurse[] = [];
     const multicolor: ICurse[] = [];

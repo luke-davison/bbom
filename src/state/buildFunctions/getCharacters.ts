@@ -10,7 +10,7 @@ export function getCharacters(): ICharacter[] {
     getMaleFireMage(),
     getFemaleFireMage(),
     getMaleWaterMage(),
-    getFemaleWaterMage()
+    getFemaleWaterMage(),
   ];
   return characters;
 }
@@ -25,9 +25,9 @@ function getFemaleFireMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 2},
     {mana: {type: "earth", value: 1}, quantity: 4},
     {mana: {type: "fire", value: 1}, quantity: 3},
-    {mana: {type: "water", value: 1}, quantity: 2}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 2},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getFemaleAirMage(): ICharacter {
@@ -40,9 +40,9 @@ function getFemaleAirMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 2},
     {mana: {type: "earth", value: 1}, quantity: 1},
     {mana: {type: "fire", value: 1}, quantity: 4},
-    {mana: {type: "water", value: 1}, quantity: 4}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 4},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getFemaleWaterMage(): ICharacter {
@@ -55,9 +55,9 @@ function getFemaleWaterMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 4},
     {mana: {type: "earth", value: 1}, quantity: 2},
     {mana: {type: "fire", value: 1}, quantity: 2},
-    {mana: {type: "water", value: 1}, quantity: 4}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 4},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getFemaleEarthMage(): ICharacter {
@@ -70,9 +70,9 @@ function getFemaleEarthMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 4},
     {mana: {type: "earth", value: 1}, quantity: 1},
     {mana: {type: "fire", value: 1}, quantity: 3},
-    {mana: {type: "water", value: 1}, quantity: 3}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 3},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getMaleFireMage(): ICharacter {
@@ -85,9 +85,9 @@ function getMaleFireMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 3},
     {mana: {type: "earth", value: 1}, quantity: 2},
     {mana: {type: "fire", value: 1}, quantity: 3},
-    {mana: {type: "water", value: 1}, quantity: 3}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 3},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getMaleAirMage(): ICharacter {
@@ -100,9 +100,9 @@ function getMaleAirMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 3},
     {mana: {type: "earth", value: 1}, quantity: 5},
     {mana: {type: "fire", value: 1}, quantity: 1},
-    {mana: {type: "water", value: 1}, quantity: 2}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 2},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getMaleWaterMage(): ICharacter {
@@ -115,9 +115,9 @@ function getMaleWaterMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 3},
     {mana: {type: "earth", value: 1}, quantity: 3},
     {mana: {type: "fire", value: 1}, quantity: 3},
-    {mana: {type: "water", value: 1}, quantity: 2}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 2},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }
 
 function getMaleEarthMage(): ICharacter {
@@ -130,7 +130,7 @@ function getMaleEarthMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 1},
     {mana: {type: "earth", value: 1}, quantity: 4},
     {mana: {type: "fire", value: 1}, quantity: 3},
-    {mana: {type: "water", value: 1}, quantity: 3}
-  ])
-  return {name, abilityText, supportSlots, maxSpells, startingDeck}
+    {mana: {type: "water", value: 1}, quantity: 3},
+  ]);
+  return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }

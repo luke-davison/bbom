@@ -1,17 +1,17 @@
-import { IPlayerCard } from '../interfaces/IPlayerCard';
-import { IMana } from '../interfaces/IMana';
+import { PlayerCard } from "../classes/PlayerCard";
+import { IMana } from "../interfaces/IMana";
 
 interface IManaQuantity {
     mana: IMana;
-    quantity: number
+    quantity: number;
 }
 
-export function getStartingDeck(manaQuantities: Array<IManaQuantity>): IPlayerCard[] {
-    const deck: IPlayerCard[] = [];
-    manaQuantities.forEach(manaQuantity => {
+export function getStartingDeck(manaQuantities: IManaQuantity[]): PlayerCard[] {
+    const deck: PlayerCard[] = [];
+    manaQuantities.forEach((manaQuantity) => {
         for (let i = 0; i < manaQuantity.quantity; i++) {
-            deck.push({type: "mana", mana: [manaQuantity.mana]})
+            deck.push(new PlayerCard("mana", [manaQuantity.mana]));
         }
-    })
+    });
     return deck;
 }

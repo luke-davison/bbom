@@ -1,9 +1,9 @@
-import { IPlayer } from "../interfaces/IPlayer";
-import { IPlayerCard } from "../interfaces/IPlayerCard";
-import { IGame } from "../interfaces/IGame";
 import { shuffle } from "../buildFunctions/shuffle";
+import { Game } from "../classes/Game";
+import { PlayerCard } from "../classes/PlayerCard";
+import { IPlayer } from "../interfaces/IPlayer";
 
-export function drawACard(game: IGame, player: IPlayer): IPlayerCard | undefined {
+export function drawACard(game: Game, player: IPlayer): PlayerCard | undefined {
     if (!player.deck.length) {
         const madness = game.madness.pop();
         if (madness) {

@@ -1,11 +1,10 @@
-import { observable } from 'mobx'
-import { Game } from "./interfaces/Game";
+import { observable } from "mobx";
+import { Game } from "./classes/Game";
 
 @observable
 export class State {
-    game: Game
+    public game: Game;
     constructor() {
-        
+        this.game = new Game(3);
     }
-    
 }
