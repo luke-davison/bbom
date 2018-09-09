@@ -1,0 +1,20 @@
+.player-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.player-icon-0 {
+    background-color: lightcoral;
+}
+
+.player-icon-1 {
+    background-color: skyblue;
+}
+
+.player-icon-2 {
+    background-color: lightgreen;
+}
+
+.player-icon-3 {
+    background-color: lightblue;
+}

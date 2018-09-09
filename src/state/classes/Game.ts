@@ -1,20 +1,28 @@
+import { observable } from "mobx";
+
 import { getMadness } from "../buildFunctions/getMadness";
 import { getManaCards } from "../buildFunctions/getManaCards";
+import { getMonsters } from "../buildFunctions/getMonsters";
 import { getPlayers } from "../buildFunctions/getPlayers";
-import { IPlayer } from "../interfaces/IPlayer";
+import { IMonster } from "../interfaces/IMonster";
+import { Player } from "./Player";
 import { PlayerCard } from "./PlayerCard";
 
 export class Game {
-  public players: IPlayer[];
-  public madness: PlayerCard[];
-  public cardsRemoved: PlayerCard[] = [];
-  public manaCards: PlayerCard[];
-  public currentTurn: number;
+  @observable public players: Player[] = [];
+  @observable public madness: PlayerCard[] = [];
+  @observable public cardsRemoved: PlayerCard[] = [];
+  @observable public manaCards: PlayerCard[] = [];
+  @observable public currentTurn: number;
+  @observable public monsters: IMonster[] = [];
 
   constructor(playerCount: number) {
     this.madness = getMadness(playerCount);
     this.players = getPlayers(playerCount);
     this.manaCards = getManaCards(this.players);
     this.currentTurn = Math.floor(Math.random() * playerCount);
+    this.monsters = getMonsters();
   }
 }
+
+export const game = new Game(3);

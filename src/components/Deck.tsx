@@ -3,6 +3,8 @@ import * as React from "react";
 
 import { PlayerCard } from "../state/classes/PlayerCard";
 
+import "./Deck.css";
+
 interface IDeckProps {
     deck: PlayerCard[];
 }
@@ -15,7 +17,7 @@ export class Deck extends React.Component<IDeckProps, {}> {
             className += " player-deck-empty";
         }
         return (
-            <div className={className} />
+            <div className={className}>Deck</div>
         );
     }
 }

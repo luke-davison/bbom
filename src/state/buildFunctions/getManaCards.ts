@@ -1,8 +1,8 @@
+import { Player } from "../classes/Player";
 import { PlayerCard } from "../classes/PlayerCard";
 import { buyManaCard } from "../gameFunctions/buyManaCard";
-import { IPlayer } from "../interfaces/IPlayer";
 
-export function getManaCards(players: IPlayer[]): PlayerCard[] {
+export function getManaCards(players: Player[]): PlayerCard[] {
   const total2ValueCards = 10;
   const total3ValueCards = 8;
   const manaCards: PlayerCard[] = [];
@@ -22,7 +22,7 @@ export function getManaCards(players: IPlayer[]): PlayerCard[] {
   return manaCards;
 }
 
-function removeStartingCardsFromManaDeck(manaCards: PlayerCard[], players: IPlayer[]): void {
+function removeStartingCardsFromManaDeck(manaCards: PlayerCard[], players: Player[]): void {
   players.forEach((player) => {
     player.deck.forEach((manaCard) => {
         if (manaCard.mana && manaCard.mana[0].value > 1) {

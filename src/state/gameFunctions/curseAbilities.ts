@@ -1,7 +1,6 @@
 
 import { shuffle } from "../buildFunctions/shuffle";
 import { Game } from "../classes/Game";
-import { drawACard } from "./drawACard";
 
 export function eachPlayerDiscardsDeck(game: Game): void {
     game.players.forEach((player) => {
@@ -71,12 +70,7 @@ export function eachPlayerDiscardsHandAndDraws(game: Game, num: number): void {
                 player.discards.push(card);
             }
         }
-        for (let i = 0; i < num; i++) {
-            const card = drawACard(game, player);
-            if (card) {
-                player.hand.push(card);
-            }
-        }
+        player.drawUpTo(num);
     });
 }
 
@@ -122,7 +116,7 @@ export function eachPlayerDiscardsCards(game: Game, num: number): void {
     playerDiscardsCards();
     function playerDiscardsCards(): void {
         if (players.length) {
-            const player = players.pop();
+            // const player = players.pop();
             // if (player) {
             //     choose(player.hand, num, (cards: IPlayerCard[]) => {
             //         cards.forEach(card => player.discards.push(card));

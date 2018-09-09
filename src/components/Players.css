@@ -7,4 +7,10 @@
 
 .player-container {
     flex-grow: 1;
+    height: 60px;
+}
+
+.player-headings {
+    display: flex;
+    flex-direction: row;
 }

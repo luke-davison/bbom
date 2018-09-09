@@ -4,7 +4,7 @@ import * as React from "react";
 import { PlayerCard } from "../state/classes/PlayerCard";
 import { Card } from "./Card";
 
-import "./Dicards.css";
+import "./Discards.css";
 
 interface IDiscardsProps {
     discards: PlayerCard[];
@@ -19,7 +19,7 @@ export class Discards extends React.Component<IDiscardsProps, {}> {
         }
         return (
             <div className={className}>
-                {this.props.discards
+                {this.props.discards.length
                     ? <Card card={this.props.discards[this.props.discards.length - 1]} />
                     : <div />
                 }

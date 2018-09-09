@@ -1,29 +1,21 @@
-.card {
-    width: 100%;
+.spell {
+    padding: auto;
     height: 100%;
     border: 1px white solid;
 }
 
-.card-madness {
-    background-color: black;
-}
-
-.card-air {
+.spell-air {
     background-color: lightblue;
 }
 
-.card-earth {
+.spell-earth {
     background-color: lightgreen;
 }
 
-.card-fire {
+.spell-fire {
     background-color: lightcoral;
 }
 
-.card-water {
+.spell-water {
     background-color: skyblue;
-}
-
-.card-selected {
-    border: 1px black solid;
 }

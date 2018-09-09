@@ -5,7 +5,7 @@ export function shuffle(cards: any[]): any[] {
     }
     while (arr.length) {
         const r = Math.floor(Math.random() * arr.length);
-        cards.push(arr.splice(r, 1));
+        cards.push(arr.splice(r, 1)[0]);
     }
     return cards;
 }

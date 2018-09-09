@@ -1,10 +1,9 @@
 import { observable } from "mobx";
-import { Game } from "./classes/Game";
+import { Game, game } from "./classes/Game";
 
-@observable
 export class State {
-    public game: Game;
+    @observable public game: Game;
     constructor() {
-        this.game = new Game(3);
+        this.game = game;
     }
 }

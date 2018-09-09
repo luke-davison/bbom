@@ -1,17 +1,14 @@
-import { PlayerCard } from "../classes/PlayerCard";
+import { Player } from "../classes/Player";
 import { ICharacter } from "../interfaces/ICharacter";
-import { IPlayer } from "../interfaces/IPlayer";
 import { getCharacters } from "./getCharacters";
 
-export function getPlayers(playerCount: number): IPlayer[] {
+export function getPlayers(playerCount: number): Player[] {
   const characters: ICharacter[] = getCharacters();
-  const players: IPlayer[] = [];
-  for (let i: number = 0; i < playerCount; i++) {
-    const id: number = players.length;
+  const players: Player[] = [];
+  for (let id: number = 0; id < playerCount; id++) {
     const r = Math.floor(Math.random() * characters.length);
     const character: ICharacter = characters.splice(r, 1)[0];
-    const deck: PlayerCard[] = Array.from(character.startingDeck);
-    players.push({id, icon: id, character, deck, discards: [], hand: [], supports: []});
+    players.push(new Player(id, character));
   }
   return players;
 }

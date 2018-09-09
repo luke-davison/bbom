@@ -1,20 +1,35 @@
 .player {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .player-icon-container {
-    flex-grow: 2;
+    height: 100%;
+    width: Calc(100% * 2 / 18);
+}
+
+.player-supports-container {
+    height: 100%;
+    width: Calc(100% * 3 / 18);
 }
 
 .player-deck-container {
-    flex-grow: 1;
+    height: 100%;
+    width: Calc(100% * 1 / 18);
 }
 
 .player-discards-container {
-    flex-grow: 1;
+    height: 100%;
+    width: Calc(100% * 1 / 18);
 }
 
 .player-hand-container {
-    flex-grow: 6;
+    height: 100%;
+    width: Calc(100% * 6 / 18);
+}
+
+.player-spells-container {
+    height: 100%;
+    width: Calc(100% * 5 / 18);
 }
