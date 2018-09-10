@@ -12,7 +12,7 @@ interface IRightPageProps {
 export class RightPage extends React.Component<IRightPageProps, {}> {
     public render() {
         return (
-            <div className="left-page">
+            <div className="right-page">
                 <div className="monster-ability">
                     {this.props.monster.name === "Final Page" ? this.props.monster.abilityText : ""}
                 </div>

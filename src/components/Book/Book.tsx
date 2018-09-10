@@ -6,6 +6,8 @@ import { IMonster} from "../../state/interfaces/IMonster";
 import { LeftPage } from "./LeftPage";
 import { RightPage } from "./RightPage";
 
+import "./Book.css";
+
 interface IBookProps {
     monsters: IMonster[];
 }

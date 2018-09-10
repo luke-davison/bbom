@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { Player as PlayerClass } from "../state/classes/Player";
+import { Player as PlayerClass } from "../../state/classes/Player";
 import { Deck } from "./Deck";
 import { Discards } from "./Discards";
 import { Hand } from "./Hand";

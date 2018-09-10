@@ -1,0 +1,49 @@
+.book {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 300px;
+    margin: auto;
+}
+
+.left-page, .right-page {
+    width: 50%;
+    height: 100%;
+}
+
+.monster-curses {
+    float: right;
+    width: 75px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.monster-curse-symbol {
+    width: 33%;
+    height: 100%;
+}
+
+.monster-curse-symbol-air {
+    background-color: lightblue;
+}
+
+.monster-curse-symbol-water {
+    background-color: skyblue;
+}
+
+.monster-curse-symbol-fire {
+    background-color: lightcoral;
+}
+
+.monster-curse-symbol-earth {
+    background-color: lightgreen;
+}
+
+.monster-name {
+    height: 160px;
+}
+
+.monster-ability, .monster-win-text, .monster-lose-text {
+    height: 80px;
+}

@@ -1,8 +1,8 @@
 import { observable } from "mobx";
 
+import { buildBook } from "../buildFunctions/buildBook";
 import { getMadness } from "../buildFunctions/getMadness";
 import { getManaCards } from "../buildFunctions/getManaCards";
-import { getMonsters } from "../buildFunctions/getMonsters";
 import { getPlayers } from "../buildFunctions/getPlayers";
 import { IMonster } from "../interfaces/IMonster";
 import { Player } from "./Player";
@@ -21,7 +21,7 @@ export class Game {
     this.players = getPlayers(playerCount);
     this.manaCards = getManaCards(this.players);
     this.currentTurn = Math.floor(Math.random() * playerCount);
-    this.monsters = getMonsters();
+    this.monsters = buildBook();
   }
 }
 

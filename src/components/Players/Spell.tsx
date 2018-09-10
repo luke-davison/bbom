@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { ISpell } from "../state/interfaces/ISpell";
+import { ISpell } from "../../state/interfaces/ISpell";
 
 import "./Spell.css";
 

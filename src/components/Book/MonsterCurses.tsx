@@ -12,6 +12,9 @@ export class MonsterCurses extends React.Component<IMonsterCursesProps, {}> {
     public render() {
         return (
             <div className="monster-curses">
+                {this.props.curses.map((curse) => (
+                    <div className={`monster-curse-symbol monster-curse-symbol-${curse}`} />
+                ))}
             </div>
         );
     }

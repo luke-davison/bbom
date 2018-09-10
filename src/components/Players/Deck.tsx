@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { PlayerCard } from "../state/classes/PlayerCard";
+import { PlayerCard } from "../../state/classes/PlayerCard";
 
 import "./Deck.css";
 
