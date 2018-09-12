@@ -7,4 +7,5 @@ export interface IMonster {
   loseText?: string;
   curseTypes: mana[];
   inital?: boolean;
+  abilityFunction: (callback: () => void) => void;
 }

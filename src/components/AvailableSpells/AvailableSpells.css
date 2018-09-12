@@ -1,0 +1,16 @@
+.available-spells {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 800px;
+}
+
+.available-spell-container {
+    width: 25%;
+    height: 100%;
+}
+
+.available-spell {
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,36 @@
+.invocation-track-spaces {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.invocation-track-headers {
+    display: flex;
+    flex-direction: row;
+}
+
+.invocation-space, .invocation-track-header {
+    min-width: 200px;
+    height: 100%;
+}
+
+.invocation-space-3, .invocation-track-header-3 {
+    min-width: 400px;
+}
+
+.curse-container {
+    width: 200px;
+    height: 100%;
+}
+
+.curse {
+    width: 100%;
+    height: 100%;
+    background-color: darkgray;
+}
+
+.invocation-space {
+    display: flex;
+    flex-direction: row;
+}

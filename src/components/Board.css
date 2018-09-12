@@ -1,0 +1,4 @@
+.available-cards {
+    display: flex;
+    flex-direction: row;
+}

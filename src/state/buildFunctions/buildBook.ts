@@ -11,7 +11,7 @@ export function buildBook(numberOfMonsters?: number): IMonster[] {
         const r = Math.floor(Math.random() * monsters.length);
         if ((book.length === 0 && monsters[r].inital) || (book.length > 0 && !monsters[r].inital)) {
             const monster = monsters.splice(r, 1)[0];
-            book.unshift(monster);
+            book.push(monster);
         }
     }
     return book;

@@ -17,7 +17,7 @@ export class Deck extends React.Component<IDeckProps, {}> {
             className += " player-deck-empty";
         }
         return (
-            <div className={className}>Deck</div>
+            <div className={className}>Deck: {this.props.deck.length} cards</div>
         );
     }
 }

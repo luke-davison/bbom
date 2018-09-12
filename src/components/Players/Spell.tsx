@@ -2,6 +2,7 @@ import {observer} from "mobx-react";
 import * as React from "react";
 
 import { ISpell } from "../../state/interfaces/ISpell";
+import { ManaSymbols } from "../ManaSymbols";
 
 import "./Spell.css";
 
@@ -18,7 +19,9 @@ export class Spell extends React.Component<ISpellProps, {}> {
         }
         return (
             <div className={className}>
-                {this.props.spell.name}
+                <div className="spell-name">{this.props.spell.name}</div>
+                <ManaSymbols mana={this.props.spell.cost}/>
+                <div className="spell-ability">{this.props.spell.ability}</div>
             </div>
         );
     }

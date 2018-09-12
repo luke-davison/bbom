@@ -14,7 +14,7 @@ interface IDiscardsProps {
 export class Discards extends React.Component<IDiscardsProps, {}> {
     public render() {
         let className: string = "player-discards";
-        if (!this.props.discards) {
+        if (!this.props.discards.length) {
             className += " player-discards-empty";
         }
         return (

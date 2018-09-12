@@ -1,5 +1,6 @@
 import { IMana } from "./IMana";
 
 export interface ICurse {
-    mana: IMana;
+    mana: IMana[];
+    ability: string;
 }

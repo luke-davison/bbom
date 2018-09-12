@@ -1,0 +1,26 @@
+.mana-symbols {
+    display: flex;
+    flex-direction: row;
+}
+
+.mana-symbol {
+    width: 25px;
+    height: 25px;
+    border: 1px white solid;
+}
+
+.mana-symbol-air {
+    background-color: lightblue;
+}
+
+.mana-symbol-water {
+    background-color: skyblue;
+}
+
+.mana-symbol-fire {
+    background-color: lightcoral;
+}
+
+.mana-symbol-earth {
+    background-color: lightgreen;
+}

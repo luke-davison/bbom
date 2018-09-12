@@ -1,3 +1,5 @@
+import { observable } from "mobx";
+
 import { getStartingSpells } from "../buildFunctions/getStartingSpells";
 import { shuffle } from "../buildFunctions/shuffle";
 import { ICharacter } from "../interfaces/ICharacter";
@@ -6,15 +8,15 @@ import { game } from "./Game";
 import { PlayerCard } from "./PlayerCard";
 
 export class Player {
-    public id: number;
-    public icon: number;
-    public character: ICharacter;
-    public hand: PlayerCard[] = [];
-    public deck: PlayerCard[];
-    public discards: PlayerCard[] = [];
-    public supports: PlayerCard[] = [];
-    public spells: ISpell[];
-    public handSize: number;
+    @observable public id: number;
+    @observable public icon: number;
+    @observable public character: ICharacter;
+    @observable public hand: PlayerCard[] = [];
+    @observable public deck: PlayerCard[];
+    @observable public discards: PlayerCard[] = [];
+    @observable public supports: PlayerCard[] = [];
+    @observable public spells: ISpell[];
+    @observable public handSize: number;
 
     constructor(id: number, character: ICharacter) {
         this.id = id;
