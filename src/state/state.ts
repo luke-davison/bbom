@@ -1,15 +1,16 @@
 import { observable } from "mobx";
 
 import { Game, game } from "./classes/Game";
-import { PlayerCard, playerCards } from "./classes/PlayerCard";
+import { PlayerCard } from "./classes/PlayerCard";
 import { IClickedOn } from "./interfaces/IClickedOn";
+import { ISelectableCards } from "./interfaces/ISelectableCards";
 import { status } from "./types/status";
 
 export class State {
     @observable public game: Game;
     @observable public clickedOn: IClickedOn;
     @observable public selectedCards: PlayerCard[] = [];
-    @observable public allowMultiSelect: boolean;
+    @observable public selectableCards: ISelectableCards;
     @observable public status: status = "free";
     constructor() {
         this.game = game;
@@ -34,13 +35,6 @@ export class State {
                 this.status = "payingMana";
                 alert("clicked on valid spell");
             }
-        }
-    }
-
-    public deselectAll(keepSelectable?: boolean): void {
-        playerCards.forEach((card) => card.deselect());
-        if (!keepSelectable) {
-            playerCards.forEach((card) => card.removeSelectable());
         }
     }
 }

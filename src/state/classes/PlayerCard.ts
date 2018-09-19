@@ -14,8 +14,6 @@ export class PlayerCard {
     @observable public id: number;
     @observable public type: playerCardType;
     @observable public mana?: IMana[];
-    @observable private selected?: boolean;
-    @observable private selectable?: boolean;
 
     constructor(type: playerCardType, mana?: IMana[]) {
         this.id = id++;
@@ -23,30 +21,8 @@ export class PlayerCard {
         if (mana) {
             this.mana = mana;
         }
-        this.select = this.select.bind(this);
         this.moveTo = this.moveTo.bind(this);
         playerCards.push(this);
-    }
-
-    public select(): void {
-        if (this.selectable) {
-            this.selected = !this.selected;
-        }
-        if (!state.allowMultiSelect) {
-            playerCards.forEach((card) => card.id !== this.id && card.deselect());
-        }
-    }
-
-    public deselect(): void {
-        this.selected = false;
-    }
-
-    public makeSelectable(): void {
-        this.selectable = true;
-    }
-
-    public removeSelectable(): void {
-        this.selectable = false;
     }
 
     public moveTo(newArray: PlayerCard[]): void {
