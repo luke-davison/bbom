@@ -1,8 +1,7 @@
-import { observable } from "mobx";
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { State } from "../state/State";
+import { state } from "../state/State";
 import { AvailableSpells } from "./AvailableSpells/AvailableSpells";
 import { Book } from "./Book/Book";
 import { ElementCards } from "./ElementCards/ElementCards";
@@ -14,27 +13,21 @@ import { TempStats } from "./TempStats";
 
 @observer
 export class Board extends React.Component<{}, {}> {
-    @observable public state: State;
-
-    constructor(props: {}) {
-        super(props);
-        this.state = new State();
-    }
     public render() {
         return (
             <div className="board">
-                <Book monsters={this.state.game.monsters}/>
-                <InvocationTrack curses={this.state.game.curses} currentTurn={this.state.game.currentTurn}/>
+                <Book monsters={state.game.monsters}/>
+                <InvocationTrack curses={state.game.curses} clickEvent={state.click}/>
                 <div className="available-cards">
-                    <ElementCards elementCards={this.state.game.manaCards} />
-                    <AvailableSpells spells={this.state.game.spells}/>
+                    <ElementCards elementCards={state.game.manaCards} clickEvent={state.click} />
+                    <AvailableSpells spells={state.game.spells} clickEvent={state.click}/>
                 </div>
-                <Players players={this.state.game.players}/>
+                <Players players={state.game.players} clickEvent={state.click}/>
                 <TempStats
-                    currentAction={this.state.game.currentAction}
-                    currentPlayer={this.state.game.currentPlayer}
-                    currentRound={this.state.game.currentRound}
-                    currentTurn={this.state.game.currentTurn}
+                    currentAction={state.game.currentAction}
+                    currentPlayer={state.game.currentPlayer}
+                    currentRound={state.game.currentRound}
+                    currentTurn={state.game.currentTurn}
                 />
             </div>
         );

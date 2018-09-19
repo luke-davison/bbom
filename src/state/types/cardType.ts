@@ -1,0 +1,12 @@
+export type cardType = "curse"
+    | "elementCard"
+    | "player"
+    | "discardedCard"
+    | "supportedCard"
+    | "discardedCard"
+    | "handCard"
+    | "spell"
+    | "availableSpell"
+    | "invocationSpace"
+    | "discardPile"
+    | "deck";

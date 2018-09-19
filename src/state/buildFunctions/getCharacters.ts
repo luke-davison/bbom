@@ -55,7 +55,7 @@ function getFemaleWaterMage(): ICharacter {
     {mana: {type: "air", value: 1}, quantity: 4},
     {mana: {type: "earth", value: 1}, quantity: 2},
     {mana: {type: "fire", value: 1}, quantity: 2},
-    {mana: {type: "water", value: 1}, quantity: 4},
+    {mana: {type: "water", value: 1}, quantity: 3},
   ]);
   return {name, abilityText, supportSlots, maxSpells, startingDeck};
 }

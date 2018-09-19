@@ -2,12 +2,18 @@ import {observer} from "mobx-react";
 import * as React from "react";
 
 import { Player as PlayerClass } from "../../state/classes/Player";
+import { IClickedOn } from "../../state/interfaces/IClickedOn";
 import { Player } from "./Player";
 
 import "./Players.css";
 
+interface IPlayersProps {
+    players: PlayerClass[];
+    clickEvent: (clickedOn: IClickedOn) => any;
+}
+
 @observer
-export class Players extends React.Component<{players: PlayerClass[]}, {}> {
+export class Players extends React.Component<IPlayersProps, {}> {
     public render() {
         return (
             <div className="players">
@@ -33,7 +39,7 @@ export class Players extends React.Component<{players: PlayerClass[]}, {}> {
                 </div>
                 {this.props.players.map((player, i) => (
                     <div className="player-container" key={i}>
-                        <Player player={player} />
+                        <Player player={player} clickEvent={this.props.clickEvent}/>
                     </div>
                 ))}
             </div>

@@ -7,6 +7,7 @@ import "./Card.css";
 
 interface ICardProps {
     card: PlayerCard;
+    clickEvent: () => any;
 }
 
 @observer
@@ -22,7 +23,7 @@ export class Card extends React.Component<ICardProps, {}> {
             className += ` card-selected`;
         }
         return (
-            <div className={className} onClick={this.props.card.select}>
+            <div className={className} onClick={this.props.clickEvent}>
                 {manaValue}
             </div>
         );

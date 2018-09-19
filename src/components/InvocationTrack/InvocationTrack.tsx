@@ -1,6 +1,7 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
+import { IClickedOn } from "../../state/interfaces/IClickedOn";
 import { ICurse } from "../../state/interfaces/ICurse";
 import { InvocationSpace } from "./InvocationSpace";
 
@@ -8,7 +9,7 @@ import "./InvocationTrack.css";
 
 interface IInvocationTrackProps {
     curses: ICurse[][];
-    currentTurn: number;
+    clickEvent: (clickedOn: IClickedOn) => any;
 }
 
 @observer
@@ -26,7 +27,7 @@ export class InvocationTrack extends React.Component<IInvocationTrackProps, {}> 
                 <div className="invocation-track-spaces">
                     {this.props.curses.map((curses, key) => (
                         <div key={key} className={`invocation-space-container invocation-space-${key + 1}`}>
-                            <InvocationSpace curses={curses} currentTurn={false} />
+                            <InvocationSpace curses={curses} clickEvent={this.props.clickEvent} />
                         </div>
                     ))}
                 </div>
