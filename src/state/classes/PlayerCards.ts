@@ -27,6 +27,7 @@ export class PlayerCards {
         if (options.playerId) {
             newCard.playerId = options.playerId;
         }
+        this.cards.push(newCard);
         this.addToTop(newCard);
         return newCard;
     }
@@ -46,7 +47,6 @@ export class PlayerCards {
         } else {
             card.position = 0;
         }
-        this.cards.push(card);
     }
 
     public moveTo(card: IPlayerCard, place: placeType, playerId?: number): void {
