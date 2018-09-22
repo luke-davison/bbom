@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import * as React from "react";
 
 import { IMana } from "../state/interfaces/IMana";
-import { mana as manaType } from "../state/types/mana";
+import { mana as manaType } from "../state/types/types";
 
 import "./ManaSymbols.css";
 

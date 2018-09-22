@@ -1,7 +1,7 @@
-import { PlayerCard } from "../classes/PlayerCard";
+import { IPlayerCard } from "../classes/IPlayerCard";
 import { choose} from "./choose";
 
-const emptyArray: PlayerCard[] = [];
+const emptyArray: IPlayerCard[] = [];
 
 it("returns an array", () => {
     choose("Choose", emptyArray, 1, (chosen) => {

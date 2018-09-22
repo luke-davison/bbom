@@ -1,20 +1,20 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { PlayerCard } from "../../state/classes/PlayerCard";
+import { IPlayerCard } from "../../state/classes/IPlayerCard";
 import { IClickedOn } from "../../state/interfaces/IClickedOn";
 import { Card } from "./Card";
 
 import "./Hand.css";
 
 interface IHandProps {
-    hand: PlayerCard[];
+    hand: IPlayerCard[];
     clickEvent: (clickedOn: IClickedOn) => any;
 }
 
 @observer
 export class Hand extends React.Component<IHandProps, {}> {
-    public clickEvent(card: PlayerCard): void {
+    public clickEvent(card: IPlayerCard): void {
         const clickedOn: IClickedOn = {type: "handCard", card};
         this.props.clickEvent(clickedOn);
     }

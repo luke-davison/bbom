@@ -1,20 +1,16 @@
-import { observable } from "mobx";
+import { computed, observable } from "mobx";
 
+import { getStartingDeck } from "../buildFunctions/getStartingDeck";
 import { getStartingSpells } from "../buildFunctions/getStartingSpells";
-import { shuffle } from "../buildFunctions/shuffle";
 import { ICharacter } from "../interfaces/ICharacter";
 import { ISpell } from "../interfaces/ISpell";
-import { game } from "./Game";
-import { PlayerCard } from "./PlayerCard";
+import { IPlayerCard } from "./IPlayerCard";
+import { playerCards } from "./PlayerCards";
 
 export class Player {
     @observable public id: number;
     @observable public icon: number;
     @observable public character: ICharacter;
-    @observable public hand: PlayerCard[] = [];
-    @observable public deck: PlayerCard[];
-    @observable public discards: PlayerCard[] = [];
-    @observable public supports: PlayerCard[] = [];
     @observable public spells: ISpell[];
     @observable public handSize: number;
 
@@ -22,37 +18,73 @@ export class Player {
         this.id = id;
         this.icon = id; // temporary
         this.character = character;
-        this.deck = Array.from(character.startingDeck);
-        shuffle(this.deck);
+        getStartingDeck(this);
         this.spells = getStartingSpells();
         this.handSize = 6;
         this.drawUpTo();
     }
 
-    public drawACardFromDeck(): PlayerCard | undefined {
-        if (!this.deck.length) {
-            const madness = game.madness.pop();
-            if (madness) {
-                this.discards.push(madness);
-            }
-            this.deck = this.discards;
-            this.discards = [];
-            shuffle(this.deck);
+    @computed public get deck(): IPlayerCard[] {
+        return playerCards.getDeck("deck", this.id);
+    }
+
+    @computed public get discards(): IPlayerCard[] {
+        return playerCards.getDeck("discard", this.id);
+    }
+
+    @computed public get supports(): IPlayerCard[] {
+        return playerCards.getDeck("support", this.id);
+    }
+
+    @computed public get hand(): IPlayerCard[] {
+        return playerCards.getDeck("hand", this.id);
+    }
+
+    @computed public get topCard(): IPlayerCard | null {
+        return playerCards.topCard("deck", this.id);
+    }
+
+    public drawFromDeck(): IPlayerCard {
+        if (!this.topCard) {
+            this.resetDeck();
         }
-        return this.deck.pop();
+        const card: any = this.topCard;
+        return card;
+    }
+
+    public resetDeck(): void {
+        const madness = playerCards.topCard("madnessPile");
+        if (madness) {
+            this.addToDeck(madness);
+            while (this.discards.length) {
+                this.addToDeck(this.discards[0]);
+            }
+            playerCards.shuffle("deck", this.id);
+        }
     }
 
     public drawUpTo(handSize?: number): void {
         if (!handSize) {
             handSize = this.handSize;
         }
-        if (this.hand.length <= handSize) {
-            for (let i = this.hand.length; i < handSize; i++) {
-                const card = this.drawACardFromDeck();
-                if (card) {
-                    this.hand.push(card);
-                }
-            }
+        while (this.hand.length < handSize) {
+            playerCards.moveTo(this.drawFromDeck(), "hand", this.id);
         }
+    }
+
+    public addToDeck(card: IPlayerCard): void {
+        playerCards.moveTo(card, "deck", this.id);
+    }
+
+    public addToHand(card: IPlayerCard): void {
+        playerCards.moveTo(card, "hand", this.id);
+    }
+
+    public addToDiscard(card: IPlayerCard): void {
+        playerCards.moveTo(card, "discard", this.id);
+    }
+
+    public addToSupport(card: IPlayerCard): void {
+        playerCards.moveTo(card, "support", this.id);
     }
 }

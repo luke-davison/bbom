@@ -1,17 +1,17 @@
 import {observer} from "mobx-react";
 import * as React from "react";
-import { PlayerCard } from "../../state/classes/PlayerCard";
+import { IPlayerCard } from "../../state/classes/IPlayerCard";
 import { IClickedOn } from "../../state/interfaces/IClickedOn";
 import { Card } from "../Players/Card";
 
 interface IElementCardsPileProps {
-    elementCards: PlayerCard[];
+    elementCards: IPlayerCard[];
     clickEvent: (clickedOn: IClickedOn) => any;
 }
 
 @observer
 export class ElementCardsPile extends React.Component<IElementCardsPileProps, {}> {
-    public clickEvent(card: PlayerCard): void {
+    public clickEvent(card: IPlayerCard): void {
         if (card) {
             const clickedOn: IClickedOn = {type: "elementCard", card};
             this.props.clickEvent(clickedOn);
@@ -19,7 +19,7 @@ export class ElementCardsPile extends React.Component<IElementCardsPileProps, {}
     }
 
     public render() {
-        const card: PlayerCard = this.props.elementCards[0];
+        const card: IPlayerCard = this.props.elementCards[0];
         return (
             <div className="element-cards-pile">
                 <div className="element-card-container">

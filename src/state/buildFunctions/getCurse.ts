@@ -1,6 +1,6 @@
 import { ICurse } from "../interfaces/ICurse";
 import { IMana } from "../interfaces/IMana";
-import { mana } from "../types/mana";
+import { mana } from "../types/types";
 import { shuffle } from "./shuffle";
 
 const curseCopies: ICurseCopies[] = [

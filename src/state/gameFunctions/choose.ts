@@ -1,11 +1,11 @@
-import { PlayerCard } from "../classes/PlayerCard";
+import { IPlayerCard } from "../classes/IPlayerCard";
 
 export function choose(
     message: string,
-    cards: PlayerCard[],
+    cards: IPlayerCard[],
     num: number,
-    callback: (chosen: PlayerCard[]) => any): void {
-    const arr: PlayerCard[] = [];
+    callback: (chosen: IPlayerCard[]) => any): void {
+    const arr: IPlayerCard[] = [];
     while (cards.length) {
         const card = cards.pop();
         if (card) {
@@ -15,7 +15,7 @@ export function choose(
     if (arr.length <= num) {
         return callback(arr);
     }
-    choose(message, arr, num, (chosen: PlayerCard[]) => {
+    choose(message, arr, num, (chosen: IPlayerCard[]) => {
         while (arr) {
             const card = arr.pop();
             if (card) {
@@ -28,13 +28,13 @@ export function choose(
 
 export function chooseFiltered(
     message: string,
-    cards: PlayerCard[],
+    cards: IPlayerCard[],
     num: number,
-    filter: (card: PlayerCard) => boolean,
-    callback: (cards: PlayerCard[]) => any,
+    filter: (card: IPlayerCard) => boolean,
+    callback: (cards: IPlayerCard[]) => any,
 ): void {
-    const arr: PlayerCard[] = [];
-    const arr2: PlayerCard[] = [];
+    const arr: IPlayerCard[] = [];
+    const arr2: IPlayerCard[] = [];
     while (cards.length) {
         const card = cards.pop();
         if (card) {
@@ -54,7 +54,7 @@ export function chooseFiltered(
     if (arr.length <= num) {
         return callback(arr);
     }
-    choose(message, arr, num, (chosen: PlayerCard[]) => {
+    choose(message, arr, num, (chosen: IPlayerCard[]) => {
         while (arr) {
             const card = arr.pop();
             if (card) {

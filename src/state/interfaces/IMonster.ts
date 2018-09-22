@@ -1,4 +1,4 @@
-import { mana } from "../types/mana";
+import { mana } from "../types/types";
 
 export interface IMonster {
   name: string;

@@ -1,15 +1,15 @@
 import { observable } from "mobx";
 
 import { Game, game } from "./classes/Game";
-import { PlayerCard } from "./classes/PlayerCard";
+import { IPlayerCard } from "./classes/IPlayerCard";
 import { IClickedOn } from "./interfaces/IClickedOn";
 import { ISelectableCards } from "./interfaces/ISelectableCards";
-import { status } from "./types/status";
+import { status } from "./types/types";
 
 export class State {
     @observable public game: Game;
     @observable public clickedOn: IClickedOn;
-    @observable public selectedCards: PlayerCard[] = [];
+    @observable public selectedCards: IPlayerCard[] = [];
     @observable public selectableCards: ISelectableCards;
     @observable public status: status = "free";
     constructor() {

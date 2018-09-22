@@ -1,13 +1,13 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { PlayerCard } from "../../state/classes/PlayerCard";
+import { IPlayerCard } from "../../state/classes/IPlayerCard";
 import { IClickedOn } from "../../state/interfaces/IClickedOn";
 
 import "./Deck.css";
 
 interface IDeckProps {
-    deck: PlayerCard[];
+    deck: IPlayerCard[];
     clickEvent: (clickedOn: IClickedOn) => any;
 }
 

@@ -1,15 +1,15 @@
+import { IPlayerCard } from "../classes/IPlayerCard";
 import { Player } from "../classes/Player";
-import { PlayerCard } from "../classes/PlayerCard";
-import { cardType } from "../types/cardType";
+import { cardType } from "../types/types";
 import { ICurse } from "./ICurse";
 import { ISpell } from "./ISpell";
 
 export interface IClickedOn {
     type: cardType;
     curse?: ICurse;
-    card?: PlayerCard;
+    card?: IPlayerCard;
     player?: Player;
     spell?: ISpell;
     curses?: ICurse[];
-    cards?: PlayerCard[];
+    cards?: IPlayerCard[];
 }

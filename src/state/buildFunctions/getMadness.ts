@@ -1,9 +1,7 @@
-import { PlayerCard } from "../classes/PlayerCard";
+import { playerCards } from "../classes/PlayerCards";
 
-export function getMadness(playerCount: number): PlayerCard[] {
-  const madness: PlayerCard[] = [];
+export function getMadness(playerCount: number): void {
   for (let i: number = 0; i < playerCount * 5 + 10; i++) {
-    madness.push(new PlayerCard("madness"));
+    playerCards.add({type: "madness", place: "madnessPile"});
   }
-  return madness;
 }

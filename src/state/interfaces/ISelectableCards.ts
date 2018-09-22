@@ -1,6 +1,5 @@
 import { Player } from "../classes/Player";
-import { cardType } from "../types/cardType";
-import { mana } from "../types/mana";
+import { cardType, mana } from "../types/types";
 
 export interface ISelectableCards {
     cardTypes: cardType[];

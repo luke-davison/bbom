@@ -1,17 +1,22 @@
-import { PlayerCard } from "../classes/PlayerCard";
-import { IMana } from "../interfaces/IMana";
+import { Player } from "../classes/Player";
+import { playerCards } from "../classes/PlayerCards";
 
-interface IManaQuantity {
-    mana: IMana;
-    quantity: number;
-}
-
-export function getStartingDeck(manaQuantities: IManaQuantity[]): PlayerCard[] {
-    const deck: PlayerCard[] = [];
-    manaQuantities.forEach((manaQuantity) => {
+export function getStartingDeck(player: Player) {
+    player.character.startingDeck.forEach((manaQuantity) => {
         for (let i = 0; i < manaQuantity.quantity; i++) {
-            deck.push(new PlayerCard("mana", [manaQuantity.mana]));
+            if (manaQuantity.mana.value === 1) {
+                playerCards.add({type: "mana", place: "deck", mana: [manaQuantity.mana], playerId: player.id});
+            } else {
+                const card = playerCards.getDeck("forPurchase")
+                .find((c) => {
+                    return !!c.mana && c.mana[0].type === manaQuantity.mana.type
+                    && c.mana[0].value === manaQuantity.mana.value && !c.playerId;
+                });
+                if (card) {
+                    playerCards.moveTo(card, "deck", player.id);
+                }
+            }
         }
+        playerCards.shuffle("deck", player.id);
     });
-    return deck;
 }

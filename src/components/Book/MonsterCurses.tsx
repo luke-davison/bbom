@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { mana } from "../../state/types/mana";
+import { mana } from "../../state/types/types";
 
 interface IMonsterCursesProps {
     curses: mana[];

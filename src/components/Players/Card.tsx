@@ -1,12 +1,12 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 
-import { PlayerCard } from "../../state/classes/PlayerCard";
+import { IPlayerCard } from "../../state/classes/IPlayerCard";
 
 import "./Card.css";
 
 interface ICardProps {
-    card: PlayerCard;
+    card: IPlayerCard;
     clickEvent: () => any;
 }
 

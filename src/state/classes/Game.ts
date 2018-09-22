@@ -1,23 +1,20 @@
-import { observable } from "mobx";
+import { computed, observable } from "mobx";
 
 import { buildBook } from "../buildFunctions/buildBook";
 import { getAvailableSpells } from "../buildFunctions/getAvailableSpells";
 import { getCurse } from "../buildFunctions/getCurse";
-import { getMadness } from "../buildFunctions/getMadness";
 import { getManaCards } from "../buildFunctions/getManaCards";
 import { getPlayers } from "../buildFunctions/getPlayers";
 import { getRoundDifficulty } from "../buildFunctions/getRoundDifficulty";
 import { ICurse } from "../interfaces/ICurse";
 import { IMonster } from "../interfaces/IMonster";
 import { ISpell } from "../interfaces/ISpell";
+import { IPlayerCard } from "./IPlayerCard";
 import { Player } from "./Player";
-import { PlayerCard } from "./PlayerCard";
+import { playerCards } from "./PlayerCards";
 
 export class Game {
   @observable public players: Player[] = [];
-  @observable public madness: PlayerCard[] = [];
-  @observable public cardsRemoved: PlayerCard[] = [];
-  @observable public manaCards: PlayerCard[] = [];
   @observable public monsters: IMonster[] = [];
   @observable public curses: ICurse[][] = [[], [], [], [], []];
   @observable public difficulty: number;
@@ -30,15 +27,26 @@ export class Game {
   @observable public instructionText: string = "";
 
   constructor(playerCount: number) {
-    this.madness = getMadness(playerCount);
+    getManaCards();
     this.players = getPlayers(playerCount);
-    this.manaCards = getManaCards(this.players);
     this.currentTurn = Math.floor(Math.random() * playerCount);
     this.monsters = buildBook();
     this.spells = getAvailableSpells();
     this.currentPlayer = this.players[0];
     this.currentAction = this.players[0];
     setTimeout(this.newRound.bind(this), 2000);
+  }
+
+  @computed public get madness(): IPlayerCard[] {
+    return playerCards.getDeck("madnessPile");
+  }
+
+  @computed public get removed(): IPlayerCard[] {
+    return playerCards.getDeck("removed");
+  }
+
+  @computed public get forPurchase(): IPlayerCard[] {
+    return playerCards.getDeck("forPurchase");
   }
 
   public setupCurses(): void {
